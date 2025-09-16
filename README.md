@@ -1,6 +1,8 @@
 # Nanopore Data Analysis
 #### September 2025
 
+## Quality checks
+
 Install Nanoplot:
 ```
 conda install -c bioconda nanoplot
@@ -45,4 +47,34 @@ Run Nanoplot on passed FASTQ reads from Dorado:
 NanoPlot --fastq N2_rep1_basecall_out_12Sept25_new/*/fastq_pass/*.fastq \
          -o N2_rep1_nanoplot_out_pass \
          --threads 12
+```
+
+## Align to genome
+
+Install minimap2 (only have to do once):
+```
+conda install bioconda::minimap2
+```
+
+Find the reference genome version you want to use and download:
+```
+wget https://downloads.wormbase.org/releases/WS275/species/c_elegans/PRJNA13758/c_elegans.PRJNA13758.WS275.genomic.fa.gz -O wb.ref.ws275.genomic.fa.gz
+gunzip wb.ref.ws275.genomic.fa.gz
+```
+
+Align to reference genome, while being splice aware (run in background):
+```
+minimap2 -ax splice -uf -k14 wb.ref.ws275.genomic rna_reads.fastq > aln.sam &
+```
+```-ax splice``` accounts for introns/large gaps in the alignment.
+
+```-u``` denotes that this is long-read data.
+
+```-f``` means "full-length" as in full-length cDNA or direct RNA.
+
+```-k14``` sets the k-mer size; the default is 15 for ONT. Reducing the number makes it more sensitive, but takes longer.
+
+Try out Graphmap2:
+```
+git clone https://github.com/lbcb-sci/graphmap2.git
 ```
