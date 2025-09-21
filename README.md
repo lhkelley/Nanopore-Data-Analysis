@@ -78,3 +78,13 @@ Try out Graphmap2:
 ```
 git clone https://github.com/lbcb-sci/graphmap2.git
 ```
+
+Install the HDF5 plugin:
+```
+conda install -c conda-forge hdf5plugin
+```
+
+Make sure your environment can see the plugin directory:
+```
+export HDF5_PLUGIN_PATH=$CONDA_PREFIX/lib/hdf5/plugin
+```
