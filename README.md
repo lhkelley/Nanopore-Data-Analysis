@@ -79,12 +79,20 @@ Try out Graphmap2:
 git clone https://github.com/lbcb-sci/graphmap2.git
 ```
 
-Install the HDF5 plugin:
+Install:
 ```
-conda install -c conda-forge hdf5plugin
+conda install -c bioconda nanopolish=0.11.1 samtools=1.9 scipy=1.7.1 pillow=8.3.1 pyyaml=5.4.1 requests=2.26.0 -y
+
+```
+I had to use ```pip``` because the conda installation wanted a more recent version of Python installed, but I thought it was best to keep the Python version that Dinopore was published with.
+
+Find the plugin path:
+```
+python -c "import hdf5plugin, os; print(os.path.dirname(hdf5plugin.__file__))"
+/N/u/lhkelley/Quartz/miniconda3/envs/dinoPore/lib/python3.8/site-packages/hdf5plugin
 ```
 
-Make sure your environment can see the plugin directory:
+Set the plugin path:
 ```
-export HDF5_PLUGIN_PATH=$CONDA_PREFIX/lib/hdf5/plugin
+export HDF5_PLUGIN_PATH=/N/u/lhkelley/Quartz/miniconda3/envs/dinoPore/lib/python3.8/site-packages/hdf5plugin
 ```
