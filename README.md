@@ -175,3 +175,8 @@ scontrol show job 7170570 | grep -E "JobState|StartTime" | while read line; do
 done
 '
 ```
+
+Installing VBZ plugin:
+
+```
+
