@@ -62,6 +62,12 @@ tf.Tensor(b'Dinopore test', shape=(), dtype=string)
 ```
 
 ```
+cd ~/vbz_compression/build
+cmake .. -DENABLE_PYTHON=OFF -DENABLE_CONAN=OFF -DCMAKE_BUILD_TYPE=Release
+make -j4
+
+
+```
 install.packages("vroom", type = "source", lib="~/R/library",
                  repos="https://cloud.r-project.org")
 ```
