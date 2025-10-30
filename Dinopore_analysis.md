@@ -7,6 +7,11 @@ Step 2: Move on with life.
 ## Preparing environments
 
 ```
+source /N/soft/rhel8/miniconda/python3.11.7/24.1.2/etc/profile.d/conda.sh
+conda activate dinoPore
+```
+
+```
 # Inside your conda env with R
 mkdir -p ~/Rlibs
 export R_LIBS_USER=~/Rlibs
