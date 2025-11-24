@@ -85,7 +85,7 @@ head -n 1000001 /N/scratch/lhkelley/N2_rep1_ont_250M_seq/aggregate_reads/N2_rep1
 
 # Verify
 wc -l /N/scratch/lhkelley/N2_rep1_ont_1M_seq/aggregate_reads/N2_rep1_converted_fast5.tsv_nnpl_inAE.txt_grpN2_rep1_group
-
+```
 
 ```
 install.packages("vroom", type = "source", lib="~/R/library",
