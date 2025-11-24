@@ -74,16 +74,16 @@ make -j4
 ## Testing subsets of data to get the second half to run
 
 ```
-# Create directory structure
+#Create directory structure
 mkdir -p /N/scratch/lhkelley/N2_rep1_ont_1M_seq/aggregate_reads
 
-# Copy reference files
+#Copy reference files
 cp /N/scratch/lhkelley/N2_rep1_ont_250M_seq/wb.ref.ws275.genomic.fa* /N/scratch/lhkelley/N2_rep1_ont_1M_seq/
 
-# Create 100M subset (will take ~5 minutes)
+#Create 100M subset (will take ~5 minutes)
 head -n 1000001 /N/scratch/lhkelley/N2_rep1_ont_250M_seq/aggregate_reads/N2_rep1_converted_fast5.tsv_nnpl_inAE.txt_grpN2_rep1_group > /N/scratch/lhkelley/N2_rep1_ont_1M_seq/aggregate_reads/N2_rep1_converted_fast5.tsv_nnpl_inAE.txt_grpN2_rep1_group
 
-# Verify
+#Verify
 wc -l /N/scratch/lhkelley/N2_rep1_ont_1M_seq/aggregate_reads/N2_rep1_converted_fast5.tsv_nnpl_inAE.txt_grpN2_rep1_group
 ```
 
